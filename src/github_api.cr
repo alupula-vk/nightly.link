@@ -361,3 +361,12 @@ struct Rate
   @[JSON::Field(converter: Time::EpochConverter)]
   property reset : Time
 end
+get info
+sudo
+sudo apt get install vlc... get data info...get vakluew{values; 1.2.3.4....^}
+sudo-apt get install wine
+sudo command install Wine.exe
+Sudo instal get data value raning values from // given  set value
+get  struct Ratelimits
+include JSON::Serialazble
+property crore : Rate
