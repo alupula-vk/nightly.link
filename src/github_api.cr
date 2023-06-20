@@ -361,3 +361,31 @@ struct Rate
   @[JSON::Field(converter: Time::EpochConverter)]
   property reset : Time
 end
+property core : Rate
+struct Ratelimits
+def self.for_token(token : Token) : RateLimits
+include JSON::Serializibe
+resp = Halite.get("https://api.github.com/rate_limit, headers: {Authorization:token})
+end
+end
+RateLimits.from_json(resp.body, root:  "resources").tap { |r| Log.debut { r.to_json } }
+Property core : Rate 
+ repo_owner : String, repo_name : String, job_id : Int64, token : InstallationToken | UserToken
+  ) : String
+    repo_owner = repo_owner.downcase
+    repo_name = repo_name.downcase
+    @@cache_raw_by_id.fetch({repo_owner, repo_name, job_id}, expires_in: 50.seconds) do
+      # https://docs.github.com/en/rest/reference/actions#download-job-logs-for-a-workflow-run
+      resp = GitHub.get(
+        "repos/#{repo_owner}/#{repo_name}/actions/jobs/#{job_id}/logs",
+        headers: {Authorization: token}
+      )
+      if resp.status_code == 410
+        raise GitHubArtifactDownloadError.new(status_code: resp.status_code, uri: resp.uri)
+repo_owner : String, repo_name : string, job_id}, expires_in: 50.seconds) do
+# https://docs.github.com/en/rest/reference/actions#download-job-logs-for-aaworkflow-run-Resp=github.get(
+end
+end
+end}
+
+      
