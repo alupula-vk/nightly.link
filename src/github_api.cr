@@ -361,3 +361,7 @@ struct Rate
   @[JSON::Field(converter: Time::EpochConverter)]
   property reset : Time
 end
+struct rate value {resp.raise_for_status}
+end
+end
+end
