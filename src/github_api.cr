@@ -364,4 +364,3 @@ end
 struct rate value {resp.raise_for_status}
 end
 end
-end
